@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Journal Entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plant</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journal_entries.each do |journal_entry| %>
+      <tr>
+        <td><%= journal_entry.plant_id %></td>
+        <td><%= journal_entry.note %></td>
+        <td><%= link_to 'Show', journal_entry %></td>
+        <td><%= link_to 'Edit', edit_journal_entry_path(journal_entry) %></td>
+        <td><%= link_to 'Destroy', journal_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Journal Entry', new_journal_entry_path %>

@@ -3,6 +3,8 @@ class Plant < ApplicationRecord
 
   has_many :plant_locations
   has_many :locations, through: :plant_locations
+  has_many :journal_entries
+  has_many :waterings
 
   def current_location_name
     current_location = plant_locations.order(:created_at).take(1).first

@@ -1,0 +1,2 @@
+class Sunlight < DataObservation
+end
