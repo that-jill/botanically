@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_040764) do
+ActiveRecord::Schema.define(version: 2020_01_05_144436) do
 
   create_table "locations", force: :cascade do |t|
     t.integer "room_id", null: false
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2020_01_05_040764) do
     t.string "soil"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "humidity"
+    t.string "fertilizer"
+    t.string "temperature"
   end
 
   create_table "rooms", force: :cascade do |t|
