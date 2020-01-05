@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_144436) do
+ActiveRecord::Schema.define(version: 2020_01_05_150119) do
 
   create_table "locations", force: :cascade do |t|
     t.integer "room_id", null: false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2020_01_05_144436) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_locations_on_room_id"
+  end
+
+  create_table "plant_locations", id: false, force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.integer "location_id", null: false
+    t.index ["location_id"], name: "index_plant_locations_on_location_id"
+    t.index ["plant_id"], name: "index_plant_locations_on_plant_id"
   end
 
   create_table "plants", force: :cascade do |t|
@@ -83,5 +90,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_144436) do
   end
 
   add_foreign_key "locations", "rooms"
+  add_foreign_key "plant_locations", "locations"
+  add_foreign_key "plant_locations", "plants"
   add_foreign_key "taggings", "tags"
 end
