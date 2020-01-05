@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+Last watered:
+
+Recent Notes:
+
 <p>
   <strong>Common name:</strong>
   <%= @plant.common_name %>
@@ -36,4 +40,5 @@
 </p>
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
+<%= link_to 'Destroy', @plant, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', plants_path %>
