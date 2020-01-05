@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_150119) do
+ActiveRecord::Schema.define(version: 2020_01_05_195339) do
+
+  create_table "data_observations", force: :cascade do |t|
+    t.string "type"
+    t.integer "plant_id", null: false
+    t.float "reading"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plant_id"], name: "index_data_observations_on_plant_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.integer "room_id", null: false
@@ -89,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_150119) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "data_observations", "plants"
   add_foreign_key "locations", "rooms"
   add_foreign_key "plant_locations", "locations"
   add_foreign_key "plant_locations", "plants"

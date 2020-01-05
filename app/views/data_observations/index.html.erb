@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Observations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Reading</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_observations.each do |data_observation| %>
+      <tr>
+        <td><%= data_observation.plant&.botanical_name %></td>
+        <td><%= data_observation.type %></td>
+        <td><%= data_observation.reading %></td>
+        <td><%= link_to 'Show', data_observation_path(data_observation.id) %></td>
+        <td><%= link_to 'Edit', edit_data_observation_path(data_observation) %></td>
+        <td><%= link_to 'Destroy', data_observation_path(data_observation.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data Observation', new_data_observation_path %>
