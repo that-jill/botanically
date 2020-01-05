@@ -82,31 +82,58 @@ bathroom = Room.create(
 
 ##### Locations #####
 
-Location.create(
+greenhouse_window = Location.create(
   name: 'Greenhouse Window',
   description: 'Very hot, lots of direct sun',
   room: greenhouse
 )
 
-Location.create(
+coffee_table = Location.create(
   name: 'Coffee Table',
   description: 'Hot, with some direct sun',
   room: greenhouse
 )
 
-Location.create(
+bar = Location.create(
   name: 'bar',
   description: 'Farther away from hot window, but still plenty of bright light.',
   room: greenhouse
 )
 
-Location.create(
+bookshelf = Location.create(
+  name: 'bookshelf',
+  description: 'Made for plants that can tolerate bright, hot light with a little direct sun.'
+)
+
+clerestory = Location.create(
   name: 'clerestory',
   description: 'North-facing window, suitable for plants that will allow for low light.',
   room: master_bedroom
 )
 
-Location.create(
+bathroom = Location.create(
   name: 'bathroom',
   description: 'Only artificial light. High humidity.'
+)
+
+##### Plant Locations #####
+
+PlantLocation.create(
+  plant: protea,
+  location: greenhouse_window
+)
+
+PlantLocation.create(
+  plant: alocasia,
+  location: clerestory
+)
+
+PlantLocation.create(
+  plant: orchid_cactus,
+  location: bookshelf
+)
+
+PlantLocation.create(
+  plant: lantern,
+  location: clerestory
 )
