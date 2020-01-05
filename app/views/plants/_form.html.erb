@@ -1,0 +1,52 @@
+<%= form_with(model: plant, local: true) do |form| %>
+  <% if plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
+
+      <ul>
+        <% plant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :common_name %>
+    <%= form.text_field :common_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :botanical_name %>
+    <%= form.text_field :botanical_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :care %>
+    <%= form.text_area :care %>
+  </div>
+
+  <div class="field">
+    <%= form.label :care_link %>
+    <%= form.text_field :care_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sunlight %>
+    <%= form.text_field :sunlight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :water %>
+    <%= form.text_field :water %>
+  </div>
+
+  <div class="field">
+    <%= form.label :soil %>
+    <%= form.text_field :soil %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
