@@ -12,13 +12,18 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :botanical_name %>
+    <%= form.text_field :botanical_name %>
+  </div>
+
+  <div class="field">
     <%= form.label :common_name %>
     <%= form.text_field :common_name %>
   </div>
 
   <div class="field">
-    <%= form.label :botanical_name %>
-    <%= form.text_field :botanical_name %>
+    <%= form.label :tags %>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s %>
   </div>
 
   <div class="field">
