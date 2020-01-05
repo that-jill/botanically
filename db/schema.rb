@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_195339) do
+ActiveRecord::Schema.define(version: 2020_01_05_213731) do
 
   create_table "data_observations", force: :cascade do |t|
     t.string "type"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2020_01_05_195339) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plant_id"], name: "index_data_observations_on_plant_id"
+  end
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.integer "plant_id", null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plant_id"], name: "index_journal_entries_on_plant_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_195339) do
   end
 
   add_foreign_key "data_observations", "plants"
+  add_foreign_key "journal_entries", "plants"
   add_foreign_key "locations", "rooms"
   add_foreign_key "plant_locations", "locations"
   add_foreign_key "plant_locations", "plants"
