@@ -24,7 +24,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+# Authentication -- https://github.com/plataformatec/devise/wiki
 gem 'devise', '~> 4.7'
+
+# Tags -- https://github.com/mbleigh/acts-as-taggable-on#usage
+gem 'acts-as-taggable-on', '~> 6.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
