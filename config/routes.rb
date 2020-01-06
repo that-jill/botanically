@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :waterings
   root to: 'plants#index'
 
   resources :data_observations
