@@ -8,6 +8,9 @@
       <div class="card h-100">
         <%= link_to image_tag('plant_default', width: '100%'), plant %>
         <div class="card-body">
+          <div class="text-right text-info">
+            <%= "Last watered #{plant.last_watered}" %>
+          </div>
           <h3 class="card-title">
             <i><%= plant.botanical_name %></i>
           </h3>
