@@ -31,6 +31,10 @@ gem 'devise', '~> 4.7'
 # Tags -- https://github.com/mbleigh/acts-as-taggable-on#usage
 gem 'acts-as-taggable-on', '~> 6.0'
 
+# I like pretty things -- https://github.com/twbs/bootstrap-rubygem/#a-ruby-on-rails
+gem 'bootstrap',  '~> 4.3.1'
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

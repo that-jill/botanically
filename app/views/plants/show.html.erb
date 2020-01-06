@@ -1,39 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Common name:</strong>
-  <%= @plant.common_name %>
-</p>
+<div class="row">
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h1 class="card-title">
+          <i><%= @plant.botanical_name %></i>
+        </h1>
+        <%= link_to image_tag('plant_default', width: '100%'), @plant %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Botanical name:</strong>
-  <%= @plant.botanical_name %>
-</p>
+  <div class="col col-lg-8 col-sm-12 mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          <i>Care</i>
+        </h4>
+        <p class="card-text">
+          <%= @plant.care %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Care:</strong>
-  <%= @plant.care %>
-</p>
+<div class="row row-cols-1 row-cols-lg-3">
+  <% Plant::DISPLAY_DATA.each do |label, method| %>
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">
+            <i><%= label %></i>
+          </h4>
+          <p class="card-text">
+            <%= @plant.send(method) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<p>
-  <strong>Care link:</strong>
-  <%= @plant.care_link %>
-</p>
-
-<p>
-  <strong>Sunlight:</strong>
-  <%= @plant.sunlight %>
-</p>
-
-<p>
-  <strong>Water:</strong>
-  <%= @plant.water %>
-</p>
-
-<p>
-  <strong>Soil:</strong>
-  <%= @plant.soil %>
-</p>
-
-<%= link_to 'Edit', edit_plant_path(@plant) %> |
-<%= link_to 'Back', plants_path %>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">
+          Manage
+        </h4>
+        <p class="card-text">
+          <p>
+            <h6 class="text-muted">Need to make changes?</h6>
+          </p>
+          <%= link_to 'Edit', edit_plant_path(@plant), class: 'btn btn-secondary' %>
+          <%= link_to 'Destroy', @plant, method: :delete, class: 'btn btn-secondary', data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Back', plants_path, class: 'btn btn-secondary' %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
