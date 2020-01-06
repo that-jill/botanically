@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :data_observations
   resources :journal_entries
   resources :locations
-  resources :plants
+  resources :plants do
+    get :interactions, to: 'interactions#index'
+    post :update_interactions, to: 'interactions#update'
+  end
   resources :rooms
   devise_for :users
 end

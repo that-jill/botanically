@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Interactions</h1>
+
+<%= form_with url: plant_update_interactions_path(@plant), local: true do |form| %>
+  <% if @plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
+
+      <ul>
+        <% @plant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col col-lg-4 col-sm-12 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h1 class="card-title">
+            <i><%= @plant.botanical_name %></i>
+          </h1>
+          <p><%= link_to image_tag('plant_default', width: '100%'), @plant %></p>
+          <p class="card-text">
+            <%= link_to 'Plant Details', @plant, class: "btn btn-outline-success" %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-lg-8 col-sm-12 mb-4">
+      <% DataObservation::SUPPORTED_TYPES.each do |observation, plant_description_method| %>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i><%= observation.titleize %></i>
+            </h5>
+            <p class="card-text">
+              <%= form.text_field :botanical_name %>
+            </p>
+            <p class="text-muted">
+              <%= @plant.send(plant_description_method) %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

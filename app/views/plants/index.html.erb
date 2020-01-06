@@ -23,10 +23,9 @@
                 <a class="btn btn-dark btn-sm" href="#" role="button"><%= tag_name %></a>
               <% end %>
             </p>
-            <p>Sunlight: <i class="text-muted"><%= plant.sunlight %></i></p>
-            <p>Water: <i class="text-muted"><%= plant.water %></i></p>
-            <p>Soil: <i class="text-muted"><%= plant.soil %></i></p>
+            <p><i class="text-muted"><%= plant.water %></i></p>
           </p>
+          <%= link_to 'Interaction', plant_interactions_path(plant), class: "btn btn-success" %>
           <%= link_to 'Details', plant, class: "btn btn-outline-success" %>
         </div>
       </div>
@@ -43,7 +42,7 @@
           <p>
             <h6 class="text-muted">Add a new plant to your collection?</h6>
           </p>
-          <%= link_to 'New Plant', new_plant_path, class: "btn btn-success" %>
+          <%= link_to 'New Plant', new_plant_path, class: "btn btn-secondary" %>
         </p>
       </div>
     </div>
