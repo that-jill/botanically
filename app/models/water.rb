@@ -1,3 +1,2 @@
-class Water < ApplicationRecord
-  belongs_to :plant
+class Water < DataObservation
 end
