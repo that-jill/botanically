@@ -2,7 +2,7 @@
 
 <h1>Interactions</h1>
 
-<%= form_with url: plant_update_interactions_path(@plant), local: true do |form| %>
+<%= form_for @plant, local: true do |form| %>
   <% if @plant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
@@ -38,7 +38,9 @@
               <i><%= observation.titleize %></i>
             </h5>
             <p class="card-text">
-              <%= form.text_field :botanical_name %>
+              <%= form.fields_for observation.underscore.to_sym do |fields| %>
+                <%= fields.number_field :value %>
+              <% end %>
             </p>
             <p class="text-muted">
               <%= @plant.send(plant_description_method) %>
@@ -46,6 +48,7 @@
           </div>
         </div>
       <% end %>
+      <%= form.submit "Record Interaction" %>
     </div>
   </div>
 
