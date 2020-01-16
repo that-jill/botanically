@@ -1,0 +1,3 @@
+POSTGRES_DB=botanically_development
+POSTGRES_USER=botanically
+POSTGRES_PASSWORD=example
