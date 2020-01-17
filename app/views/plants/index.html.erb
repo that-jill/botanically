@@ -6,7 +6,7 @@
   <% @plants.each do |plant| %>
     <div class="col mb-4">
       <div class="card h-100">
-        <%= link_to image_tag('plant_default', width: '100%'), plant %>
+        <%= link_to image_tag('plant_default.jpg', width: '100%'), plant %>
         <div class="card-body">
           <div class="text-right text-info">
             <%= "Last watered #{plant.last_watered}" %>
@@ -34,7 +34,7 @@
   <% end %>
   <div class="col mb-4">
     <div class="card h-100">
-      <%= image_tag('plant_default', width: '100%') %>
+      <%= image_tag('plant_default.jpg', width: '100%') %>
       <div class="card-body">
         <h3 class="card-title">
           There is always room for more!
