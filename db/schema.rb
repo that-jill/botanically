@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_01_06_012049) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "data_observations", force: :cascade do |t|
     t.string "type"
-    t.integer "plant_id", null: false
+    t.bigint "plant_id", null: false
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_012049) do
   end
 
   create_table "journal_entries", force: :cascade do |t|
-    t.integer "plant_id", null: false
+    t.bigint "plant_id", null: false
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_012049) do
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer "room_id", null: false
+    t.bigint "room_id", null: false
     t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_01_06_012049) do
   end
 
   create_table "plant_locations", id: false, force: :cascade do |t|
-    t.integer "plant_id", null: false
-    t.integer "location_id", null: false
+    t.bigint "plant_id", null: false
+    t.bigint "location_id", null: false
     t.index ["location_id"], name: "index_plant_locations_on_location_id"
     t.index ["plant_id"], name: "index_plant_locations_on_plant_id"
   end
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_012049) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_01_06_012049) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
