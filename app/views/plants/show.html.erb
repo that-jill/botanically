@@ -8,7 +8,10 @@
           <i><%= @plant.botanical_name %></i>
         </h1>
         <p><%= link_to image_tag('plant_default.jpg', width: '100%'), @plant %></p>
-        <p><%= link_to 'Interaction', plant_interactions_path(@plant), class: "btn btn-success" %></p>
+        <p>
+          <%= link_to 'Interaction', plant_interactions_path(@plant), class: "btn btn-success" %>
+          <%= link_to 'Note', new_journal_entry_path(@plant), class: "btn btn-outline-success" %>
+        </p>
       </div>
     </div>
   </div>

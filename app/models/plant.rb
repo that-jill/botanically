@@ -29,4 +29,8 @@ class Plant < ApplicationRecord
     num_days = (Time.current - last_watering.created_at).to_i / 1.day
     "#{num_days} days ago"
   end
+
+  def last_journal_entry
+    journal_entries.order(:created_at).take(1).first&.note
+  end
 end
