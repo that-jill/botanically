@@ -1,5 +1,5 @@
 class Plant < ApplicationRecord
-  DISPLAY_DATA =[
+  TEMPLATED_DATA =[
     ['Common Name', :common_name],
     ['Location', :current_location_name],
     ['Last Watered', :last_watered],
@@ -15,6 +15,7 @@ class Plant < ApplicationRecord
   has_many :locations, through: :plant_locations
   has_many :journal_entries
   has_many :waterings, class_name: 'Water'
+  has_many :data_observations
 
   def current_location_name
     current_location = plant_locations.order(:created_at).take(1).first
@@ -25,7 +26,7 @@ class Plant < ApplicationRecord
   def last_watered
     last_watering = waterings.order(:created_at).take(1).first
     return 'n/a' if last_watering.blank?
-    num_days = (Time.current.to_date - last_watering.created_at.to_date).days.to_i
+    num_days = (Time.current - last_watering.created_at).to_i / 1.day
     "#{num_days} days ago"
   end
 end
