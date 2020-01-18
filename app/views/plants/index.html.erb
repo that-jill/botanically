@@ -23,9 +23,10 @@
                 <a class="btn btn-dark btn-sm" href="#" role="button"><%= tag_name %></a>
               <% end %>
             </p>
-            <p><i class="text-muted"><%= plant.water %></i></p>
+            <p><i class="text-muted"><%= plant.last_journal_entry || plant.water %></i></p>
           </p>
           <%= link_to 'Interaction', plant_interactions_path(plant), class: "btn btn-success" %>
+          <%= link_to 'Note', new_journal_entry_path(@plant), class: "btn btn-outline-success" %>
           <%= link_to 'Details', plant, class: "btn btn-outline-success" %>
         </div>
       </div>
