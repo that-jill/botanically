@@ -26,7 +26,7 @@ class Plant < ApplicationRecord
   def last_watered
     last_watering = waterings.order(:created_at).take(1).first
     return 'n/a' if last_watering.blank?
-    num_days = (Time.current.to_date - last_watering.created_at.to_date).days.to_i
+    num_days = (Time.current - last_watering.created_at).to_i / 1.day
     "#{num_days} days ago"
   end
 end
