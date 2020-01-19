@@ -6,7 +6,7 @@
   <% @plants.each do |plant| %>
     <div class="col mb-4">
       <div class="card h-100">
-        <%= link_to image_tag('plant_default.jpg', width: '100%'), plant %>
+        <%= link_to image_tag(plant.pretty_picture, width: '100%'), plant %>
         <div class="card-body">
           <div class="text-right text-info">
             <%= "Last watered #{plant.last_watered}" %>

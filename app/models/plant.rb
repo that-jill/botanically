@@ -17,6 +17,12 @@ class Plant < ApplicationRecord
   has_many :waterings, class_name: 'Water'
   has_many :data_observations
 
+  has_one_attached :image
+
+  def pretty_picture
+    image.present? ? image : 'plant_default.jpg'
+  end
+
   def current_location_name
     current_location = plant_locations.order(:created_at).take(1).first
     return 'n/a' if current_location.blank?
