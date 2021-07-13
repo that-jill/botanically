@@ -58,7 +58,7 @@ GEM
       zeitwerk (~> 2.2)
     acts-as-taggable-on (6.5.0)
       activerecord (>= 5.0, < 6.1)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (9.7.3)
       execjs
@@ -142,7 +142,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.2.2)
     popper_js (1.14.5)
-    public_suffix (4.0.2)
+    public_suffix (4.0.6)
     puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.8)
